@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeedClean72 - Service de nettoyage professionnel au Mans</title>
+    <meta name="description" content="SpeedClean72, votre expert en nettoyage professionnel au Mans. Services de qualité pour particuliers et entreprises. Devis gratuit !">
+    
+    <!-- Tailwind CSS -->
+    <link href="dist/style.css" rel="stylesheet">
+    
+    <!-- Styles personnalisés (inclut bubbles.css via @import) -->
+    <link href="dist/style.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+      #hero-section {
+        /* Retour à 65vh en attendant le diagnostic */
+        height: 65vh !important;
+        min-height: 65vh !important;
+      }
+    </style>
+</head>
+<body class="bg-primary-100 font-body flex flex-col min-h-screen">
+
+    <!-- Top Bar -->
+    <div class="bg-primary-900 text-text-light py-2 text-sm">
+        <div class="container mx-auto px-6 lg:px-8 flex flex-wrap justify-center items-center space-x-6">
+            <!-- Contact Info -->
+            <div class="flex items-center flex-wrap space-x-6 mb-1 sm:mb-0">
+                <a href="tel:0612345678" class="hover:text-accent transition-colors duration-300 flex items-center">
+                    <i class="fas fa-phone mr-2"></i>
+                    <span>06 12 34 56 78</span>
+                </a>
+                <a href="mailto:contact@speedclean72.fr" class="hover:text-accent transition-colors duration-300 flex items-center">
+                    <i class="fas fa-envelope mr-2"></i>
+                    <span>contact@speedclean72.fr</span>
+                </a>
+            </div>
+            <!-- Social Media -->
+            <div class="flex items-center space-x-6">
+                <a href="#" class="hover:text-accent transition-colors duration-300" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="hover:text-accent transition-colors duration-300" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="hover:text-accent transition-colors duration-300" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Principal -->
+    <header id="main-header" class="sticky top-0 z-50 bg-white shadow-md w-full transition-all duration-300">
+        <div class="container mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo + Brand Text -->
+                <a href="index.html" class="flex items-center space-x-4 ml-4 lg:ml-0" aria-label="SpeedClean72 - Accueil">
+                    <img src="public/images/Logo 3.png" alt="SpeedClean72 Logo" class="logo h-24 md:h-28 flex-shrink-0 transition-all duration-300">
+                    <div class="brand-text hidden sm:block">
+                        <h1 class="text-xl md:text-2xl font-bold text-primary-900 font-heading leading-tight">SpeedClean72</h1>
+                        <p class="text-sm md:text-base text-[#a88557] font-body leading-tight">Votre expert en propreté</p>
+                    </div>
+                </a>
+
+                <!-- Navigation Desktop -->
+                <nav class="hidden lg:flex items-center space-x-10">
+                    <a href="index.html" class="nav-link relative font-medium text-[#94A3B8] hover:text-[#475569] after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-full after:h-[2px] after:bg-accent after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">Accueil</a>
+                    <a href="#services" class="nav-link relative font-medium text-[#94A3B8] hover:text-[#475569] after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-full after:h-[2px] after:bg-accent after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">Services</a>
+                    <a href="#about" class="nav-link relative font-medium text-[#94A3B8] hover:text-[#475569] after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-full after:h-[2px] after:bg-accent after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">À propos</a>
+                    <a href="contact.html" class="nav-link relative font-medium text-[#94A3B8] hover:text-[#475569] after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-full after:h-[2px] after:bg-accent after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">Contact</a>
+                    <a href="devis.html" class="nav-cta bg-accent hover:bg-accent-dark text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
+                        Devis Gratuit
+                    </a>
+                </nav>
+
+                <!-- Bouton Burger -->
+                <button id="mobile-menu-button" class="lg:hidden p-4 text-primary-900 hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded-md" aria-label="Menu principal" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Mobile (caché par défaut) -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-white shadow-lg transition-all duration-300 ease-in-out transform opacity-0 -translate-y-full z-40">
+            <nav class="flex flex-col items-center space-y-6 py-8">
+                <a href="index.html" class="nav-link text-lg hover:text-accent transition-colors duration-300">Accueil</a>
+                <a href="#services" class="nav-link text-lg hover:text-accent transition-colors duration-300">Services</a>
+                <a href="#about" class="nav-link text-lg hover:text-accent transition-colors duration-300">À propos</a>
+                <a href="contact.html" class="nav-link text-lg hover:text-accent transition-colors duration-300">Contact</a>
+                <a href="devis.html" class="nav-cta bg-accent hover:bg-accent-dark text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg w-4/5 text-center">Devis Gratuit</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+      <!-- Section Hero avec style inline pour forcer l'application -->
+      <section id="hero-section" class="relative flex items-center justify-center overflow-hidden" style="background-color: #0a1a35;">
+        <!-- Image de fond avec assombrissement maximal -->
+        <div class="absolute inset-0 z-0 bg-black">
+            <img src="public/images/hero-bg.jpg" alt="Service de nettoyage professionnel" 
+                class="absolute inset-0 w-full h-full object-cover opacity-[.18]">
+        </div>
+        
+        <!-- Contenu Hero -->
+        <div class="relative z-[2] container mx-auto px-6 text-center text-white">
+            <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
+                Nettoyage Professionnel à<br>Votre Service
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 text-gray-100 max-w-3xl mx-auto font-light">
+                Des solutions sur mesure pour un environnement impeccable
+            </p>
+            <a href="devis.html" class="inline-block bg-accent hover:bg-accent-dark text-white text-lg font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
+                Prenons rendez-vous
+            </a>
+        </div>
+    </section>
+
+    <!-- Section Galerie/Réalisations -->
+    <section class="gallery-section py-24 md:py-32 bg-gradient-to-b from-white to-[#f9f7f5]" id="realisations">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold font-heading text-center text-primary-900 py-12 mb-16">Galerie de Réalisations</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          <!-- Paire Avant/Après 1 -->
+          <div class="before-after-card bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105 group">
+            <div class="relative image-container">
+              <img src="public/images/nettoyage-bureaux.jpg" alt="Bureaux avant nettoyage" loading="lazy" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+              <div class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded shadow-md">
+                Avant
+              </div>
+              <!-- Image "Après" pourrait être ajoutée ici avec un slider ou au survol -->
+            </div>
+            <div class="p-6">
+              <p class="gallery-caption text-sm text-primary-700 font-body">Des bureaux toujours propres pour une meilleure image et un meilleur bien-être.</p>
+            </div>
+          </div>
+
+          <!-- Paire Avant/Après 2 -->
+          <div class="before-after-card bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105 group">
+            <div class="relative image-container">
+              <img src="public/images/nettoyage-residentiel.jpg" alt="Résidence après nettoyage" loading="lazy" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+              <div class="absolute top-2 right-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded shadow-md">
+                Après
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="gallery-caption text-sm text-primary-700 font-body"><strong>SPEEDCLEAN72</strong> : votre allié pour une maison impeccable au quotidien.</p>
+            </div>
+          </div>
+
+          <!-- Paire Avant/Après 3 -->
+          <div class="before-after-card bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105 group">
+            <div class="relative image-container">
+              <img src="public/images/nettoyage-industriel.jpg" alt="Entrepôt industriel avant nettoyage" loading="lazy" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+              <div class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded shadow-md">
+                Avant
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="gallery-caption text-sm text-primary-700 font-body">Immeubles et parties communes toujours propres, pour un quotidien agréable.</p>
+            </div>
+          </div>
+
+          <!-- Paire Avant/Après 4 -->
+          <div class="before-after-card bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105 group">
+            <div class="relative image-container">
+              <img src="public/images/nettoyage-post-travaux.jpg" alt="Appartement après nettoyage post-travaux" loading="lazy" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+              <div class="absolute top-2 right-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded shadow-md">
+                Après
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="gallery-caption text-sm text-primary-700 font-body">Transparence et brillance : un nettoyage professionnel de vos vitres et vitrines.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- Section Services -->
+  <section id="services" class="services-section py-24 md:py-32 bg-gradient-to-t from-[#f3efe9] to-white">
+    <div class="container mx-auto px-4">
+      <h2 class="services-title text-3xl md:text-4xl font-bold font-heading text-center text-primary-900 py-12 mb-16">Mes Services Complets</h2>
+      <div class="services-grid grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Carte Service 1: Résidentiel -->
+        <div class="service-card bg-primary-100 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
+          <div class="text-center mb-4">
+              <i class="fas fa-home text-4xl text-accent mb-3"></i> 
+          </div>
+          <h3 class="service-title text-xl font-bold font-heading text-primary-900 mb-4 text-center">Nettoyage Résidentiel</h3>
+          <p class="service-description text-primary-700 font-body mb-4 text-center flex-grow">Solution complète pour particuliers :</p>
+          <ul class="service-list space-y-2 text-sm text-primary-700 font-body list-none p-0">
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i>Maisons & appartements</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i>Nettoyage des vitres et baies vitrées</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i>Nettoyage après déménagement</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i>Nettoyage des balcons et terrasses</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i>Shampouinage de moquettes et tapis</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i>Entretien régulier</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i>Entretien des espaces extérieurs (allées, escaliers, mobilier de jardin)</li>
+          </ul>
+        </div>
+
+        <!-- Carte Service 2: Commercial -->
+        <div class="service-card bg-primary-100 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
+           <div class="text-center mb-4">
+              <i class="fas fa-building text-4xl text-accent mb-3"></i>
+           </div>
+          <h3 class="service-title text-xl font-bold font-heading text-primary-900 mb-4 text-center">Nettoyage Commercial</h3>
+          <p class="service-description text-primary-700 font-body mb-4 text-center flex-grow">Services professionnels pour entreprises :</p>
+          <ul class="service-list space-y-2 text-sm text-primary-700 font-body list-none p-0">
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i>Bureaux & espaces commerciaux</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i>Désinfection des postes de travail et matériel informatique</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i>Entretien des copropriétés et parties communes</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i>Nettoyage et entretien des ascenseurs</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i>Nettoyage des parkings et zones de stockage</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i>Nettoyage post-travaux</li>
+          </ul>
+        </div>
+
+        <!-- Carte Service 3: Spécialisés -->
+        <div class="service-card bg-primary-100 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
+           <div class="text-center mb-4">
+              <i class="fas fa-tools text-4xl text-accent mb-3"></i>
+            </div>
+          <h3 class="service-title text-xl font-bold font-heading text-primary-900 mb-4 text-center">Services Spécialisés</h3>
+          <p class="service-description text-primary-700 font-body mb-4 text-center flex-grow">Solutions techniques avancées :</p>
+          <ul class="service-list space-y-2 text-sm text-primary-700 font-body list-none p-0">
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i>Nettoyage haute pression (terrasses, allées, parkings, mobilier urbain)</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i>Dégraissage industriel</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i>Traitement de surfaces</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i>Décontamination professionnelle</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i>Nettoyage des équipements industriels légers</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i>Entretien des parkings et aires de stationnement</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section À Propos / Expertise -->
+  <section id="about" class="about-section py-24 md:py-32 bg-gradient-to-b from-white to-[#f9f7f5]" itemscope itemtype="http://schema.org/LocalBusiness">
+    <div class="container mx-auto px-4">
+      <h2 class="section-title text-3xl md:text-4xl font-bold font-heading text-center text-primary-900 py-12 mb-16">Mon Expertise en 3 Piliers</h2>
+      
+      <div class="expertise-grid grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Carte Expertise 1: Précision & Flexibilité -->
+        <div class="expertise-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col items-center text-center">
+          <i class="fas fa-shield-alt text-5xl text-accent mb-6"></i>
+          <h3 class="text-xl font-bold font-heading text-primary-900 mb-4">Nettoyage Précis & Flexible</h3>
+          <div class="stats-box bg-primary-100 p-4 rounded-md mb-6 w-full">
+            <div class="stat-item text-center">
+              <div class="stat-number text-4xl font-bold text-accent">100%</div>
+              <div class="stat-label text-sm text-primary-700 uppercase tracking-wider">satisfaction client</div>
+            </div>
+          </div>
+          <ul class="expertise-list space-y-2 text-sm text-primary-700 font-body list-none p-0 text-left w-full">
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i> Un nettoyage méthodique et efficace </li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i> Un souci du détail inégalé</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i> Flexibilité et adaptation à vos besoins</li>
+          </ul>
+        </div>
+
+        <!-- Carte Expertise 2: Qualité & Éco-responsabilité -->
+        <div class="expertise-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col items-center text-center">
+          <i class="fas fa-leaf text-5xl text-accent mb-6"></i>
+          <h3 class="text-xl font-bold font-heading text-primary-900 mb-4">Méthodes & Produits de Qualité</h3>
+          <div class="eco-badges flex justify-center items-center bg-primary-100 p-4 rounded-md mb-6 w-full">
+            <div class="eco-badge flex items-center text-green-700">
+              <i class="fas fa-recycle mr-2 text-2xl"></i>
+              <span class="font-semibold">92% de produits bio</span>
+            </div>
+          </div>
+          <ul class="expertise-list space-y-2 text-sm text-primary-700 font-body list-none p-0 text-left w-full">
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i> Produits respectueux et efficaces </li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i> Outils spécialisés pour un nettoyage parfait</li>
+            <li class="flex items-start"><i class="fas fa-check-circle text-accent mr-2 mt-1 flex-shrink-0"></i> Solutions adaptées à chaque besoin</li>
+          </ul>
+        </div>
+
+        <!-- Carte Expertise 3: Processus Rigoureux -->
+        <div class="expertise-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col items-center text-center">
+          <i class="fas fa-clipboard-check text-5xl text-accent mb-6"></i>
+          <h3 class="text-xl font-bold font-heading text-primary-900 mb-4">Processus Rigoureux</h3>
+          <ol class="process-steps space-y-3 list-none p-0 text-left w-full mt-auto">
+            <li class="flex items-center">
+              <span class="step-number flex items-center justify-center w-8 h-8 rounded-full bg-accent text-white font-bold mr-3">1</span>
+              <span class="step-text text-primary-700 font-body">Diagnostic sur mesure</span>
+            </li>
+            <li class="flex items-center">
+              <span class="step-number flex items-center justify-center w-8 h-8 rounded-full bg-accent text-white font-bold mr-3">2</span>
+              <span class="step-text text-primary-700 font-body">Protocole personnalisé</span>
+            </li>
+            <li class="flex items-center">
+              <span class="step-number flex items-center justify-center w-8 h-8 rounded-full bg-accent text-white font-bold mr-3">3</span>
+              <span class="step-text text-primary-700 font-body">Contrôle qualité en 7 points</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Témoignages -->
+  <section class="testimonials-section py-24 md:py-32 bg-gradient-to-t from-[#f3efe9] to-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold font-heading text-center text-primary-900 py-12 mb-16">Ce que disent mes clients</h2>
+      <div class="testimonials-grid grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Témoignage 1 -->
+        <div class="testimonial-card bg-primary-100 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
+          <div class="testimonial-content text-primary-700 font-body mb-6 relative flex-grow">
+            <i class="fas fa-quote-left text-accent text-3xl absolute -top-4 -left-4 opacity-20"></i>
+            Un service impeccable ! Dorian a transformé nos bureaux avec un souci du détail impressionnant. Professionnalisme et efficacité au rendez-vous !
+            <i class="fas fa-quote-right text-accent text-3xl absolute -bottom-4 -right-4 opacity-20"></i>
+          </div>
+          <div class="testimonial-author flex items-center mt-auto pt-4 border-t border-primary-700 border-opacity-20">
+            <img src="public/images/client1.jpg" alt="Sophie Martin" class="author-avatar w-12 h-12 rounded-full object-cover mr-4 border-2 border-accent">
+            <div class="author-info">
+              <h4 class="font-bold font-heading text-primary-900">Sophie Martin</h4>
+              <p class="text-sm text-primary-700 font-body">Directrice - Cabinet d'architectes</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Témoignage 2 -->
+        <div class="testimonial-card bg-primary-100 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
+          <div class="testimonial-content text-primary-700 font-body mb-6 relative flex-grow">
+             <i class="fas fa-quote-left text-accent text-3xl absolute -top-4 -left-4 opacity-20"></i>
+            Je recommande vivement SPEEDCLEAN72. Ponctuel, efficace et soucieux de l’environnement, Dorian fait un travail remarquable !
+             <i class="fas fa-quote-right text-accent text-3xl absolute -bottom-4 -right-4 opacity-20"></i>
+          </div>
+          <div class="testimonial-author flex items-center mt-auto pt-4 border-t border-primary-700 border-opacity-20">
+            <img src="public/images/client2.jpg" alt="Thomas Dubois" class="author-avatar w-12 h-12 rounded-full object-cover mr-4 border-2 border-accent">
+            <div class="author-info">
+              <h4 class="font-bold font-heading text-primary-900">Thomas Dubois</h4>
+              <p class="text-sm text-primary-700 font-body">Gérant - Restaurant Le Mans</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Témoignage 3 -->
+        <div class="testimonial-card bg-primary-100 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
+          <div class="testimonial-content text-primary-700 font-body mb-6 relative flex-grow">
+            <i class="fas fa-quote-left text-accent text-3xl absolute -top-4 -left-4 opacity-20"></i>
+            Un service client exceptionnel et des résultats qui dépassent les attentes. Dorian est devenu mon prestataire de confiance.
+            <i class="fas fa-quote-right text-accent text-3xl absolute -bottom-4 -right-4 opacity-20"></i>
+          </div>
+          <div class="testimonial-author flex items-center mt-auto pt-4 border-t border-primary-700 border-opacity-20">
+            <img src="public/images/client3.jpg" alt="Marie Lambert" class="author-avatar w-12 h-12 rounded-full object-cover mr-4 border-2 border-accent">
+            <div class="author-info">
+              <h4 class="font-bold font-heading text-primary-900">Marie Lambert</h4>
+              <p class="text-sm text-primary-700 font-body">Responsable - Centre médical</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Confiance -->
+  <section class="py-24 md:py-32 bg-gradient-to-b from-white to-[#f9f7f5]">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold font-heading text-center text-[#1a365d] py-12 mb-16">
+        Pourquoi me faire confiance ?
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <!-- Qualité et Soin -->
+        <div class="text-center">
+          <div class="inline-block mb-8 group">
+            <div class="w-36 h-36 rounded-full bg-[#FDF8F3] flex items-center justify-center transition-all duration-500 group-hover:w-40 group-hover:h-40 group-hover:bg-[#c5a47e]">
+              <i class="fas fa-certificate text-4xl text-[#c5a47e] group-hover:text-white transition-all duration-500"></i>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-[#1a365d] mb-4">✅ Qualité et Soin</h3>
+          <p class="text-[#666666] text-base leading-relaxed max-w-xs mx-auto">
+            Chaque prestation est réalisée avec minutie pour un résultat impeccable.
+          </p>
+        </div>
+
+        <!-- Éco-responsable -->
+        <div class="text-center">
+          <div class="inline-block mb-8 group">
+            <div class="w-36 h-36 rounded-full bg-[#FDF8F3] flex items-center justify-center transition-all duration-500 group-hover:w-40 group-hover:h-40 group-hover:bg-[#c5a47e]">
+              <i class="fas fa-leaf text-4xl text-[#c5a47e] group-hover:text-white transition-all duration-500"></i>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-[#1a365d] mb-4">🌿 Éco-responsable</h3>
+          <p class="text-[#666666] text-base leading-relaxed max-w-xs mx-auto">
+            J'utilise des produits respectueux de l'environnement pour un nettoyage efficace et sûr.
+          </p>
+        </div>
+
+        <!-- Réactivité -->
+        <div class="text-center">
+          <div class="inline-block mb-8 group">
+            <div class="w-36 h-36 rounded-full bg-[#FDF8F3] flex items-center justify-center transition-all duration-500 group-hover:w-40 group-hover:h-40 group-hover:bg-[#c5a47e]">
+              <i class="fas fa-clock text-4xl text-[#c5a47e] group-hover:text-white transition-all duration-500"></i>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-[#1a365d] mb-4">⚡ Réactivité</h3>
+          <p class="text-[#666666] text-base leading-relaxed max-w-xs mx-auto">
+            Intervention rapide et adaptée à vos besoins, avec une flexibilité maximale.
+          </p>
+        </div>
+
+        <!-- Garantie Satisfaction -->
+        <div class="text-center">
+          <div class="inline-block mb-8 group">
+            <div class="w-36 h-36 rounded-full bg-[#FDF8F3] flex items-center justify-center transition-all duration-500 group-hover:w-40 group-hover:h-40 group-hover:bg-[#c5a47e]">
+              <i class="fas fa-shield-alt text-4xl text-[#c5a47e] group-hover:text-white transition-all duration-500"></i>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-[#1a365d] mb-4">🔒 Garantie Satisfaction</h3>
+          <p class="text-[#666666] text-base leading-relaxed max-w-xs mx-auto">
+            Travail soigné et assurance professionnelle pour une tranquillité totale.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Appel à l'Action (CTA) -->
+  <section class="cta-section relative overflow-hidden bg-gradient-to-r from-primary-700 to-primary-900 py-16 md:py-24">
+    <!-- Conteneur des bulles -->
+    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      <!-- Petites bulles -->
+      <div class="bubble bubble-xs float-fast delay-0" style="left: 5%"></div>
+      <div class="bubble bubble-xs float-normal delay-2" style="left: 15%"></div>
+      <div class="bubble bubble-xs float-fast delay-6" style="left: 92%"></div>
+      
+      <!-- Bulles moyennes -->
+      <div class="bubble bubble-sm float-normal delay-2" style="left: 10%"></div>
+      <div class="bubble bubble-sm float-slow delay-4" style="left: 25%"></div>
+      <div class="bubble bubble-sm float-fast delay-6" style="left: 75%"></div>
+      
+      <!-- Grandes bulles -->
+      <div class="bubble bubble-md float-slow delay-0" style="left: 20%"></div>
+      <div class="bubble bubble-md float-slow delay-8" style="left: 65%"></div>
+      
+      <!-- Très grandes bulles -->
+      <div class="bubble bubble-lg float-slow delay-2" style="left: 30%"></div>
+      <div class="bubble bubble-lg float-normal delay-6" style="left: 55%"></div>
+      
+      <!-- Bulles géantes -->
+      <div class="bubble bubble-xl float-slow delay-0" style="left: 40%"></div>
+      <div class="bubble bubble-xl float-slow delay-4" style="left: 70%"></div>
+    </div>
+
+    <!-- Contenu -->
+    <div class="container relative z-10 mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold font-heading py-12 mb-4">
+        Prêt à redonner de l'éclat à votre espace ?
+      </h2>
+      <p class="text-lg font-body mb-16 max-w-2xl mx-auto">
+        Contactez-moi dès aujourd'hui pour un devis gratuit et personnalisé. Découvrez la différence SPEEDCLEAN72 !
+      </p>
+      <a href="devis.html" class="cta-button inline-block bg-accent hover:bg-accent-dark text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary-900 focus:ring-accent">
+        Demander un Devis Gratuit
+      </a>
+    </div>
+  </section>
+
+  <!-- Transition vers le footer -->
+  <div class="wave-transition bg-primary-900">
+    <div class="container mx-auto px-6">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none" class="w-full max-w-4xl mx-auto h-12 -mb-1 transition-transform duration-700 hover:scale-y-110">
+        <path fill="var(--primary-900)" d="M0,96L48,85.3C96,75,192,53,288,53.3C384,53,480,75,576,90.7C672,107,768,117,864,112C960,107,1056,85,1152,74.7C1248,64,1344,64,1392,64L1440,64L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-primary-900 text-primary-100">
+    <!-- Section humoristique -->
+    <div class="py-3 text-center border-b border-primary-700/20 footer-humor">
+      <p class="text-primary-100 text-sm flex items-center justify-center gap-3 my-1">
+        <span class="hamster-container">
+          <span class="inline-block animate-spin-hamster">🐹</span>
+        </span>
+        <span class="hamster-text italic">Site propulsé par des hamsters entraînés 24h/24</span>
+        <span class="hamster-container">
+          <span class="inline-block animate-spin-hamster">🐹</span>
+        </span>
+      </p>
+    </div> <br>
+
+    <div class="py-20">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-16">
+          <!-- Coordonnées -->
+          <div class="footer-section">
+            <h4 class="footer-title text-accent font-heading text-2xl mb-6">Coordonnées</h4>
+            <div class="space-y-6">
+              <p class="flex items-center gap-4">
+                <i class="fas fa-map-marker-alt text-accent"></i>
+                72 Rue du Progrès, 72000 Le Mans
+              </p>
+              <p class="flex items-center gap-4">
+                <i class="fas fa-clock text-accent"></i>
+                Lun-Sam : 7h-20h
+              </p>
+              <p class="flex items-center gap-4">
+                <i class="fas fa-phone-alt text-accent"></i>
+                06 12 34 56 78
+              </p>
+              <p class="flex items-center gap-4">
+                <i class="fas fa-envelope text-accent"></i>
+                contact@speedclean72.fr
+              </p>
+            </div>
+          </div>
+
+          <!-- Services Express -->
+          <div class="footer-section">
+            <h4 class="footer-title text-accent font-heading text-2xl mb-6">Services Express</h4>
+            <ul class="space-y-2">
+              <li>Nettoyage urgent</li>
+              <li>Décapage de sols</li>
+              <li>Nettoyage de gouttières</li>
+              <li>Nettoyage après déménagement</li>
+              <li>Nettoyage post-travaux</li>
+              <li>Nettoyage de parkings et garages</li>
+            </ul>
+          </div>
+
+          <!-- Zone d'intervention -->
+          <div class="footer-section">
+            <h4 class="footer-title text-accent font-heading text-2xl mb-6">Zone d'intervention</h4>
+            <p class="mb-4">J'interviens rapidement dans ces zones :</p> <br>
+            <div class="space-y-2">
+              <div class="flex items-start gap-2">
+                <span class="text-accent">📍</span>
+                Le Mans et ses environs (20 km)
+              </div> <br>
+              <div class="flex items-start gap-2">
+                <span class="text-accent">📍</span>
+                Allonnes, Coulaines, Yvré-l'Évêque, Arnage
+              </div>
+            </div>
+          </div>
+
+          <!-- Réseaux Sociaux -->
+          <div class="footer-section">
+            <h4 class="footer-title text-accent font-heading text-2xl mb-6">Réseaux Sociaux</h4> <br>
+            <div class="flex justify-center space-x-4"> 
+              <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary-700 hover:bg-primary-900 transition-colors">
+                <i class="fab fa-facebook-f text-primary-100"></i>
+              </a>
+              <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary-700 hover:bg-primary-900 transition-colors">
+                <i class="fab fa-instagram text-primary-100"></i>
+              </a>
+              <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary-700 hover:bg-primary-900 transition-colors">
+                <i class="fab fa-linkedin-in text-primary-100"></i>
+              </a>
+              <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary-700 hover:bg-primary-900 transition-colors">
+                <i class="fab fa-tiktok text-primary-100"></i>
+              </a>
+            </div><br>
+            <p>Ne ratez rien ! Rejoignez <span class="text-accent">SPEEDCLEAN72</span>, votre expert en nettoyage au Mans.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer Bottom -->
+    <div class="relative border-t border-primary-700/20 mt-8">
+      <div class="container mx-auto px-6 py-6 text-center text-sm text-primary-100/70">
+        <p class="mb-2">
+          <i class="far fa-copyright mr-2"></i>2025 SpeedClean72 - Tous droits réservés
+        </p>
+        <p class="mb-1">Création du site</p>
+        <p class="mb-2">
+          Conçu avec passion par <strong class="text-accent font-semibold">Debarieux David</strong> – Spécialiste en création de sites vitrine
+        </p>
+        <p class="text-primary-100/70 hover:text-primary-100 transition-colors">
+          <a href="mailto:contact.debarieux@gmail.com">contact.debarieux@gmail.com</a>
+        </p>
+      </div>
+      <!-- Nouveau bouton Back to Top -->
+      <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="back-to-top group fixed bottom-6 right-6 p-2 bg-accent/90 hover:bg-accent text-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2">
+        <i class="fas fa-arrow-up text-sm text-white transform group-hover:-translate-y-0.5 transition-transform duration-300"></i>
+      </button>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script type="module" src="dist/main.js"></script>
+</body>
+</html>

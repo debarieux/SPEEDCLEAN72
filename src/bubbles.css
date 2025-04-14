@@ -1,0 +1,104 @@
+/* Bubble styles for CTA section */
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(197, 164, 126, 0.3);
+    box-shadow: 0 0 20px rgba(197, 164, 126, 0.5),
+               inset 0 0 20px rgba(197, 164, 126, 0.4);
+    will-change: transform, opacity;
+    /* z-index: 20; /* Supprimé - le conteneur parent gère le z-index */
+    pointer-events: none;
+    bottom: -20px;
+    opacity: 0.8;
+    filter: brightness(1.2);
+}
+
+.bubble-slow {
+    animation: float-up 45s infinite ease-in-out;
+}
+
+.bubble-medium {
+    animation: float-up 38s infinite ease-in-out;
+}
+
+.bubble-fast {
+    animation: float-up 32s infinite ease-in-out;
+}
+
+.bubble-sway {
+    animation: float-up-sway 40s infinite ease-in-out;
+}
+
+.bubble-pop {
+    animation: float-up-pop 35s infinite ease-in-out;
+}
+
+@keyframes float-up {
+    0% {
+        transform: translateY(100%) scale(0.8);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 1;
+        transform: translateY(-85vh) scale(1); /* Utilisation de vh */
+    }
+    100% {
+        transform: translateY(-100vh) scale(1); /* Utilisation de vh */
+        opacity: 0;
+    }
+}
+
+@keyframes float-up-sway {
+    0% {
+        transform: translateY(100%) translateX(0) scale(0.8);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    30% {
+        transform: translateY(70vh) translateX(40px) scale(0.9); /* Utilisation de vh */
+    }
+    60% {
+        transform: translateY(40vh) translateX(-40px) scale(1); /* Utilisation de vh */
+    }
+    80% {
+        transform: translateY(20vh) translateX(40px) scale(1.1); /* Utilisation de vh */
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(0) scale(1.2); /* Utilisation de vh */
+        opacity: 0;
+    }
+}
+
+@keyframes float-up-pop {
+    0% {
+        transform: translateY(100%) scale(0.8);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    80% {
+        transform: translateY(-80vh) scale(1); /* Utilisation de vh */
+        opacity: 1;
+    }
+    88% {
+        transform: translateY(-88vh) scale(1.8); /* Utilisation de vh */
+        opacity: 0.8;
+    }
+    94% {
+        transform: translateY(-94vh) scale(0.4); /* Utilisation de vh */
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(-100vh) scale(0.1); /* Utilisation de vh */
+        opacity: 0;
+    }
+}

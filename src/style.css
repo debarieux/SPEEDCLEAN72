@@ -1,0 +1,866 @@
+/* stylelint-disable at-rule-no-unknown */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import des polices Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
+
+@layer components {
+    /* Animation des bulles */
+    @keyframes float-up {
+        0% {
+            transform: translateY(0);
+            opacity: 0;
+        }
+        10% {
+            opacity: 0.8;
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(-100vh);
+            opacity: 0;
+        }
+    }
+
+    .bubble {
+        position: absolute;
+        border-radius: 9999px;
+        pointer-events: none;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(2px);
+        box-shadow: 
+            0 0 20px rgba(255, 255, 255, 0.2),
+            inset 0 0 20px rgba(255, 255, 255, 0.1);
+        bottom: 0;
+        animation: float-up var(--duration, 12s) infinite ease-in-out;
+        animation-delay: var(--delay, 0s);
+    }
+
+    /* Tailles des bulles */
+    .bubble-xs { width: 1rem; height: 1rem; }
+    .bubble-sm { width: 2rem; height: 2rem; }
+    .bubble-md { width: 3rem; height: 3rem; }
+    .bubble-lg { width: 4rem; height: 4rem; }
+    .bubble-xl { width: 6rem; height: 6rem; }
+
+    /* Durées d'animation */
+    .float-slow { --duration: 15s; }
+    .float-normal { --duration: 12s; }
+    .float-fast { --duration: 8s; }
+
+    /* Délais */
+    .delay-0 { --delay: 0s; }
+    .delay-2 { --delay: 2s; }
+    .delay-4 { --delay: 4s; }
+    .delay-6 { --delay: 6s; }
+    .delay-8 { --delay: 8s; }
+}
+
+/* Ajoutez ceci APRES @tailwind utilities; dans src/style.css */
+
+:root {
+  /* Typography */
+  --heading-font: 'Playfair Display', serif;
+  --body-font: 'Lato', sans-serif;
+
+  /* Color palette (utilisé par Tailwind via tailwind.config.js et aussi directement ici) */
+  --primary-900: #1a365d;
+  --primary-700: #3d5a88;
+  --primary-100: #f0f4f8;
+  --accent-color: #c5a47e;
+  --accent-dark: #a88557;
+  --text-light: #ffffff;
+  --text-dark: #1a1a1a;
+
+  /* Effects & backgrounds */
+  --focus-outline: 3px solid var(--accent-color);
+  --glass-bg: rgba(255, 255, 255, 0.98);
+  --gradient-hero: linear-gradient(152deg, #0a1a35 0%, #1a365d 100%);
+  --hero-overlay: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(0, 0, 0, 0.3) 100%
+  );
+
+  /* Shadows & transitions */
+  --nav-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --hover-transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Animations */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Styles de base */
+body {
+  font-family: var(--body-font);
+  color: var(--text-dark);
+  @apply antialiased pt-[36px]; /* Lissage polices + padding-top pour top-bar fixe */
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--heading-font);
+}
+
+/* Hero section specific styles */
+.hero {
+    @apply relative min-h-screen flex items-center justify-center overflow-hidden;
+    background: var(--gradient-hero);
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--hero-overlay);
+    z-index: 1;
+}
+
+.hero > div {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    color: var(--text-light);
+    font-family: var(--heading-font);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    @apply text-6xl md:text-7xl font-bold mb-8;
+}
+
+.hero p {
+    color: var(--text-light);
+    font-family: var(--body-font);
+    @apply text-xl md:text-2xl mb-12 leading-relaxed;
+}
+
+.hero a {
+    color: var(--text-light);
+}
+
+/* --- Barre Supérieure --- */
+.top-bar {
+    @apply bg-primary-900 text-text-light py-2 px-4 flex justify-between items-center text-sm fixed w-full top-0 z-50;
+}
+.top-bar-contact {
+    @apply flex items-center space-x-4;
+}
+.top-bar-contact i {
+    @apply text-accent; /* Utilise la couleur accent définie dans Tailwind */
+}
+.top-bar-cta {
+    @apply bg-accent hover:bg-accent-dark text-primary-900 font-bold py-1 px-3 rounded text-xs transition duration-300;
+}
+
+/* --- Header Principal / Navbar --- */
+.navbar {
+    @apply sticky top-0 z-50 flex items-center justify-between px-6 py-5 bg-white shadow-md;
+    transition: var(--hover-transition);
+}
+.logo-container {
+    @apply flex items-center;
+}
+.logo {
+    @apply h-12 w-auto; /* Ajustez h-12 (hauteur) si nécessaire */
+}
+.brand-text {
+    @apply flex flex-col;
+}
+.brand-name {
+    @apply text-xl md:text-2xl font-bold text-primary-900 font-heading;
+}
+.brand-slogan {
+    @apply text-xs text-primary-700;
+}
+.nav-menu {
+    @apply hidden md:flex items-center space-x-8;
+}
+.nav-link {
+    @apply relative text-text-dark font-medium pb-1;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+.nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-[2px] bg-accent-dark;
+    transition: width 0.3s var(--ease-out-expo);
+}
+.nav-link:hover,
+.nav-link:focus {
+    @apply text-accent-dark outline-none;
+}
+.nav-link:hover::after,
+.nav-link:focus::after {
+    @apply w-full;
+}
+.nav-cta {
+    @apply bg-accent text-white px-6 py-2 rounded-full font-semibold shadow-sm;
+    @apply hover:bg-accent-dark hover:shadow-md transition duration-300 ease-in-out;
+}
+
+/* --- Menu Mobile (Bouton Burger + Menu) --- */
+.mobile-menu-btn {
+  @apply md:hidden text-primary-900 focus:outline-none z-[1001] relative; /* z-index élevé, position relative */
+  /* Styles pour le bouton burger (lignes) */
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 5px; /* Zone cliquable */
+}
+.mobile-menu-btn span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-900);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+    border-radius: 1px;
+}
+/* Animation du bouton burger */
+.mobile-menu-btn.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+.mobile-menu-btn.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Styles du menu mobile (caché par défaut, affiché avec JS via classe 'active') */
+/* La visibilité et le positionnement sont maintenant gérés par les classes Tailwind */
+/* directement sur l'élément #mobile-menu dans index.html et le script intégré. */
+/* Ce bloc @media est donc supprimé pour éviter les conflits. */
+
+/* --- Section Hero --- */
+.hero {
+    /* Le gradient est appliqué via la classe bg-gradient-hero définie dans tailwind.config.js */
+     @apply bg-gradient-hero text-text-light py-20 md:py-32 text-center relative overflow-hidden;
+}
+/* Overlay optionnel pour améliorer la lisibilité */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--hero-overlay);
+    z-index: 1;
+}
+.hero-content {
+    position: relative; /* Pour être au-dessus de l'overlay */
+    z-index: 2;
+    @apply container mx-auto px-4; /* Centrer le contenu */
+}
+.hero a.hero-cta { /* Ciblage plus spécifique */
+     @apply inline-block bg-accent hover:bg-accent-dark text-primary-900 font-bold py-3 px-8 rounded transition duration-300 text-lg;
+}
+.cta-arrow { /* Style pour la flèche */
+    @apply inline-block transition-transform duration-300 group-hover:translate-x-1;
+}
+
+/* Animations */
+@keyframes spin-hamster {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-hamster {
+  animation: spin-hamster 3s linear infinite;
+  display: inline-block;
+  transform-style: preserve-3d;
+  font-size: 1.5rem;
+}
+
+.hamster-container {
+  @apply inline-flex items-center justify-center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  perspective: 1000px;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hamster-text {
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
+  font-size: 1.1rem;
+}
+
+.footer-humor:hover .hamster-text {
+  transform: translateZ(50px) rotateY(15deg);
+}
+
+.footer-humor:hover .hamster-container:first-child {
+  transform: translateZ(60px) rotateY(-35deg) translateX(-10px);
+}
+
+.footer-humor:hover .hamster-container:last-child {
+  transform: translateZ(60px) rotateY(35deg) translateX(10px);
+}
+
+.animate-spin-hamster {
+  animation: spin-hamster 3s linear infinite;
+  display: inline-block;
+  transform-style: preserve-3d;
+  font-size: 1.5rem;
+}
+
+@keyframes hamster-jump {
+  0% {
+    transform: translateZ(0) rotateY(0) translateY(0);
+  }
+  50% {
+    transform: translateZ(100px) rotateY(180deg) translateY(-20px);
+  }
+  100% {
+    transform: translateZ(0) rotateY(360deg) translateY(0);
+  }
+}
+
+@keyframes text-float {
+  0% {
+    transform: translateZ(0) rotateX(0);
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    transform: translateZ(80px) rotateX(-15deg);
+    text-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    transform: translateZ(0) rotateX(0);
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.footer-humor:hover .hamster-container {
+  animation: hamster-jump 1s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+}
+
+.footer-humor:hover .hamster-text {
+  animation: text-float 2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+}
+
+.footer-humor:hover .hamster-container:first-child {
+  animation-delay: 0s;
+}
+
+.footer-humor:hover .hamster-container:last-child {
+  animation-delay: 0.5s;
+}
+
+
+/* --- Section Galerie --- */
+.gallery-section {
+    @apply py-16;
+}
+.gallery-section h2 {
+    @apply text-3xl font-bold text-primary-900 text-center mb-12 font-heading;
+}
+.gallery-grid {
+    @apply container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6;
+}
+.before-after-pair {
+    @apply relative overflow-hidden rounded-lg shadow-lg transition duration-500 ease-in-out transform hover:shadow-2xl hover:-translate-y-1;
+}
+.image-container {
+    @apply relative;
+}
+.before-after-pair img {
+     @apply w-full h-48 object-cover;
+}
+.labels {
+    @apply absolute top-2 left-2 flex space-x-1;
+}
+.label-before, .label-after {
+    @apply text-white text-xs font-bold px-2 py-0.5 rounded shadow;
+}
+.label-before { @apply bg-red-600; }
+.label-after { @apply bg-green-600; }
+.gallery-caption {
+     @apply p-4 text-sm text-primary-700 flex-grow;
+}
+
+
+/* --- Section Services --- */
+.services-section {
+    @apply py-16 bg-primary-100;
+}
+.services-section h2.services-title {
+    @apply text-3xl font-bold text-primary-900 text-center mb-12 font-heading;
+}
+.services-grid {
+    @apply container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8;
+}
+.service-card {
+    @apply bg-white p-6 rounded-lg shadow-lg transition duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col;
+}
+.service-card h3.service-title {
+    @apply text-xl font-bold text-primary-700 mb-3 font-heading;
+}
+.service-description {
+    @apply text-sm text-primary-700 mb-4;
+}
+.service-list {
+    @apply space-y-2 text-sm text-primary-700 list-none pl-0 flex-grow;
+}
+.service-list li {
+    @apply flex items-start;
+}
+.service-list li i {
+    @apply text-accent mr-2 mt-1 text-xs; /* Utilise la couleur accent de Tailwind */
+}
+
+/* --- Section Expertise (About) --- */
+#about {
+    @apply py-16;
+}
+#about h2 {
+     @apply text-3xl font-bold text-primary-900 text-center mb-12 font-heading;
+}
+.expertise-grid {
+    @apply container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8;
+}
+.expertise-card {
+    @apply bg-white p-8 rounded-lg shadow-lg text-center border-t-4 border-accent transition duration-300 hover:shadow-xl hover:-translate-y-1;
+}
+.expertise-card .card-icon {
+    @apply text-4xl text-primary-700 mb-4;
+}
+.expertise-card h3 {
+    @apply text-xl font-bold text-primary-900 mb-4 font-heading;
+}
+/* Stats Box */
+.stats-box { @apply my-4; }
+.stat-item { @apply inline-block bg-primary-100 text-primary-900 px-4 py-2 rounded-full; }
+.stat-number { @apply text-2xl font-bold; }
+.stat-label { @apply block text-xs; }
+/* Eco Badges */
+.eco-badges { @apply my-4; }
+.eco-badge { @apply inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm; }
+.eco-badge i { @apply mr-1; }
+.eco-badge span { @apply font-semibold; }
+/* Expertise List */
+.expertise-list { @apply space-y-2 text-primary-700 text-sm text-left list-none pl-0; }
+.expertise-list li { @apply flex items-center; }
+.expertise-list li i { @apply text-accent mr-2; } /* Utilise couleur accent */
+/* Process Steps */
+.process-steps { @apply space-y-3 text-primary-700 text-sm text-left mt-6 list-none pl-0; }
+.process-steps li { @apply flex items-center; }
+.step-number { @apply bg-primary-700 text-white rounded-full h-6 w-6 flex items-center justify-center mr-3 font-bold text-xs flex-shrink-0; }
+
+
+/* --- Section Témoignages --- */
+.testimonials-section {
+    @apply bg-primary-100 py-16;
+}
+.testimonials-section h2 {
+     @apply text-3xl font-bold text-primary-900 text-center mb-12 font-heading;
+}
+.testimonials-grid {
+    @apply container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8;
+}
+.testimonial-card {
+     @apply bg-white p-6 rounded-lg shadow-lg flex flex-col transition duration-300 hover:shadow-xl hover:-translate-y-1;
+}
+.testimonial-content {
+    @apply text-primary-700 mb-4 flex-grow italic relative text-base; /* Taille de texte ajustée */
+}
+.testimonial-content::before { /* Guillemets stylisés */
+    content: '“';
+    @apply absolute -top-3 -left-3 text-5xl text-accent opacity-20 font-serif -z-10; /* Plus grand, plus transparent */
+}
+.testimonial-author {
+    @apply flex items-center mt-auto pt-4 border-t border-primary-100; /* mt-auto pour pousser vers le bas */
+}
+.author-avatar {
+    @apply w-12 h-12 rounded-full mr-4 object-cover border-2 border-accent; /* Utilise couleur accent */
+}
+.author-info h4 {
+    @apply font-bold text-primary-900 font-heading text-base;
+}
+.author-info p {
+    @apply text-sm text-primary-700;
+}
+
+/* --- Section Confiance --- */
+.trust-section {
+    @apply py-16 bg-white;
+}
+
+.trust-title {
+    @apply text-3xl font-bold text-center mb-12;
+    font-family: var(--heading-font);
+    color: var(--primary-900);
+}
+
+.trust-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 container mx-auto px-4;
+}
+
+.trust-item {
+    @apply p-6 rounded-lg text-center transform transition-all duration-300 hover:scale-105;
+    background: linear-gradient(145deg, rgba(255,255,255,1) 0%, rgba(240,244,248,1) 100%);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.trust-item i {
+    @apply text-4xl mb-4;
+    color: var(--accent-color);
+}
+
+.trust-item h3 {
+    @apply text-xl font-bold mb-2;
+    color: var(--primary-900);
+}
+
+.trust-item p {
+    @apply text-gray-600;
+}
+
+/* --- Section CTA --- */
+.cta-section {
+    @apply bg-primary-900 text-text-light py-16 text-center relative overflow-hidden;
+}
+.cta-container {
+    @apply container mx-auto px-4 relative z-10;
+}
+.cta-title {
+    @apply text-3xl md:text-4xl font-bold mb-3 font-heading text-text-light; /* Forcer couleur claire */
+}
+.cta-subtitle {
+    @apply text-lg text-primary-100 opacity-90 mb-8;
+}
+.cta-actions {
+    @apply flex flex-col sm:flex-row justify-center items-center gap-4 mb-8;
+}
+.cta-button-primary {
+    @apply bg-accent hover:bg-accent-dark text-primary-900 font-bold py-3 px-6 rounded-md transition duration-300 inline-flex items-center text-base;
+}
+.cta-button-primary i { @apply mr-2; }
+.cta-button-secondary {
+    @apply text-accent hover:text-white transition duration-300 inline-flex items-center text-base font-medium;
+}
+.cta-button-secondary i { @apply mr-2; }
+
+.cta-guarantee {
+    @apply flex flex-col sm:flex-row justify-center items-center gap-x-6 gap-y-2 text-sm opacity-80 mt-8; /* Espace ajusté */
+}
+.guarantee-item { @apply flex items-center; }
+.guarantee-item i { @apply text-accent mr-2; } /* Utilise couleur accent */
+.guarantee-item span { @apply font-medium; } /* Texte garantie en medium */
+
+/* Décorations CTA (optionnel) */
+.cta-decoration { @apply absolute inset-0 z-0; }
+.cta-bubble { @apply absolute rounded-full bg-primary-700 opacity-10; }
+.cta-bubble-1 { @apply w-64 h-64 -top-20 -left-20; }
+.cta-bubble-2 { @apply w-48 h-48 -bottom-16 -right-10; }
+.cta-shine { @apply absolute top-0 left-1/2 w-1/2 h-full bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-1/2 opacity-50; }
+
+/* --- Footer --- */
+.site-footer {
+    @apply bg-primary-900 text-primary-100 pt-12 pb-6;
+}
+.footer-main-content {
+     @apply container mx-auto px-4;
+}
+.footer-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8;
+}
+.footer-section h4 {
+    @apply text-xl font-bold text-primary-100 mb-4 font-heading block !important; /* Forcé l'affichage */
+    display: block !important;
+    color: var(--primary-100) !important;
+    font-size: 1.25rem !important;
+    line-height: 1.5 !important;
+    z-index: 1;
+}
+.contact-info p, .footer-links li, .footer-contact-info p, .footer-contact-info li {
+    @apply text-sm mb-2 flex items-start;
+    color: rgba(240, 244, 248, 0.9);
+}
+.contact-info i, .footer-links li i, .footer-contact-info i, .footer-contact-info ul li::before {
+    @apply text-accent mr-2 mt-0.5 w-4 text-center flex-shrink-0; /* Utilise couleur accent */
+}
+.footer-links, .footer-contact-info ul {
+    @apply list-none p-0;
+}
+.footer-contact-info ul { @apply mt-2; }
+.footer-contact-info ul li::before {
+    content: '📍'; /* Fallback emoji */
+    /* Si FontAwesome est chargé, on pourrait utiliser une classe ici */
+}
+
+.footer-section .social-links {
+    @apply flex space-x-3 mb-4;
+}
+.social-button {
+    @apply w-8 h-8 rounded-full flex items-center justify-center text-white transition duration-300 text-base;
+}
+.social-button.fb { @apply bg-[#1877F2] hover:bg-[#166fe5]; } /* Couleurs officielles approx */
+.social-button.insta { @apply bg-[#E4405F] hover:bg-[#d6294d]; }
+.social-button.linkedin { @apply bg-[#0A66C2] hover:bg-[#004182]; }
+.social-button.tiktok { @apply bg-[#000000] hover:bg-[#333333]; }
+
+.social-text {
+  @apply leading-relaxed;
+}
+
+.footer-title {
+  position: relative;
+  padding-bottom: 1.5rem;
+  margin-bottom: 3.5rem;
+  font-size: 1.75rem;
+  line-height: 2.2;
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, 
+    var(--accent-color) 0%,
+    var(--accent-color) 40%,
+    rgba(197, 164, 126, 0.1) 100%
+  );
+}
+
+.footer-section {
+  @apply flex flex-col;
+}
+
+.footer-links li {
+  @apply text-lg;
+}
+
+.social-text {
+  @apply leading-relaxed;
+}
+
+/* Transition vers le footer */
+.wave-transition {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: translateY(1px); /* Évite le petit gap */
+}
+
+.wave-transition svg {
+  filter: drop-shadow(0 -4px 4px rgba(0, 0, 0, 0.1));
+  transform-origin: center bottom;
+}
+
+.wave-transition:hover svg {
+  animation: wave 2s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.1);
+  }
+}
+
+.footer-bottom {
+    @apply border-t border-primary-700 border-opacity-20 mt-12;
+    background-color: var(--primary-900);
+}
+
+.footer-bottom p {
+    @apply text-sm text-primary-100 text-opacity-70 mb-2;
+}
+
+.footer-bottom strong {
+    @apply text-accent font-semibold hover:text-accent-dark transition-colors;
+}
+
+.footer-bottom a {
+    @apply text-primary-100 text-opacity-70 hover:text-primary-100 transition-colors;
+}
+
+footer {
+    position: relative;
+    z-index: 10; /* Ensure footer content is below button if overlapping */
+}
+
+/* Animation spin */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin { animation: spin 1.5s linear infinite; }
+
+/* Flèche de retour en haut mobile */
+.back-to-top-mobile {
+    @apply fixed bottom-6 right-6 w-12 h-12 rounded-full flex items-center justify-center;
+    @apply bg-accent hover:bg-accent-dark text-white shadow-lg;
+    @apply transition-all duration-300 transform hover:scale-110;
+    @apply md:hidden; /* Seulement visible sur mobile */
+    z-index: 100;
+}
+
+.back-to-top-mobile svg {
+    @apply w-6 h-6;
+    fill: currentColor;
+}
+
+/* --- Effet d'apparition au défilement --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Styles FontAwesome de base --- */
+/* Assurez-vous que FontAwesome est correctement lié dans votre HTML */
+[class^="fa-"], [class*=" fa-"] {
+    /* font-family peut être hérité si FA est bien configuré */
+    display: inline-block; /* Comportement attendu */
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+.fas { font-weight: 900; } /* Solid */
+.far { font-weight: 400; } /* Regular */
+.fab { font-family: "Font Awesome 6 Brands"; font-weight: 400; } /* Brands - Nécessite la police spécifique */
+
+/* Effet de scale sur le logo au scroll */
+#main-header.header-scrolled-down .logo {
+    @apply transform scale-110; /* Augmente la taille du logo de 10% */
+}
+
+.nav-link {
+    @apply relative font-medium text-primary-700 hover:text-primary-900;
+}
+
+/* Footer styles */
+.footer-title {
+  position: relative;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    var(--accent-color) 0%,
+    var(--accent-color) 40%,
+    rgba(197, 164, 126, 0.1) 100%
+  );
+}
+
+.footer-section {
+  @apply flex flex-col;
+}
+
+.footer-links li {
+  @apply text-lg;
+}
+
+.social-text {
+  @apply leading-relaxed;
+}
+
+/* Transition vers le footer */
+.wave-transition {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: translateY(1px); /* Évite le petit gap */
+}
+
+.wave-transition svg {
+  filter: drop-shadow(0 -4px 4px rgba(0, 0, 0, 0.1));
+  transform-origin: center bottom;
+}
+
+.wave-transition:hover svg {
+  animation: wave 2s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.1);
+  }
+}
+
+.footer-bottom {
+    @apply text-center text-xs mt-8 pt-4 border-t border-primary-700 border-opacity-50 text-sm text-primary-700 text-opacity-70; /* Syntaxe opacité corrigée */
+    color: rgba(240, 244, 248, 0.7);
+}
+.footer-bottom p { @apply mb-1; }
+.footer-bottom strong { @apply text-accent font-semibold; } /* Utilise couleur accent */
+/* Suppression de l'ancien bouton de retour */
+/* Removed empty .back-to-top ruleset that caused lint warning */
+
+/* Positionnement amélioré pour la flèche mobile */
+.back-to-top-mobile {
+    @apply fixed bottom-6 right-6 w-12 h-12 rounded-full flex items-center justify-center;
+    @apply bg-accent hover:bg-accent-dark text-white shadow-lg;
+    @apply transition-all duration-300 transform hover:scale-110;
+    @apply md:hidden; /* Seulement visible sur mobile */
+    z-index: 100;
+    opacity: 0.9;
+}
+
+.back-to-top-mobile:hover {
+    opacity: 1;
+}
+
+.back-to-top-mobile svg {
+    @apply w-6 h-6;
+    fill: currentColor;
+}
+
+/* Header scroll effect */
+#main-header {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transform: translateY(0);
+  /* Ensure header stays above content */
+  position: sticky; /* Or fixed, depending on desired behavior */
+  top: 0;
+  z-index: 100; 
+}
+
+#main-header.header-scrolled-down {
+  /* Example: Slightly shrink or add shadow */
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adjust shadow as needed */
+   /* Apply other style changes like background opacity or slight translation if desired */
+   /* background-color: rgba(26, 54, 93, 0.95); /* Example: Slightly transparent bg */
+}
+
+/* Footer and Back-to-Top Z-index */
+footer {
+    position: relative;
+    z-index: 10; /* Ensure footer content is below button if overlapping */
+}

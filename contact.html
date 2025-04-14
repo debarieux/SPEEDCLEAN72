@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - SpeedClean72</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/solid.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/brands.min.css">
+    <!-- Placeholder for generated CSS -->
+    <link rel="stylesheet" href="dist/style.css">
+    <!-- Swiper CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body id="top">
+  <!-- Top Bar -->
+  <div class="bg-primary-900 text-text-light py-2 text-sm">
+    <div class="container mx-auto px-6 lg:px-8 flex flex-wrap justify-center items-center space-x-6">
+      <!-- Contact Info -->
+      <div class="flex items-center flex-wrap space-x-6 mb-1 sm:mb-0">
+        <a href="tel:0612345678" class="hover:text-accent transition-colors duration-300 flex items-center">
+          <i class="fas fa-phone mr-2"></i>
+          <span>06 12 34 56 78</span>
+        </a>
+        <a href="mailto:contact@speedclean72.fr" class="hover:text-accent transition-colors duration-300 flex items-center">
+          <i class="fas fa-envelope mr-2"></i>
+          <span>contact@speedclean72.fr</span>
+        </a>
+      </div>
+      <!-- Social Media -->
+      <div class="flex items-center space-x-6">
+        <a href="#" class="hover:text-accent transition-colors duration-300" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="hover:text-accent transition-colors duration-300" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="hover:text-accent transition-colors duration-300" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Principal -->
+  <header id="main-header" class="sticky top-0 z-50 bg-white shadow-md w-full transition-all duration-300">
+    <div class="container mx-auto px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <!-- Logo + Brand Text -->
+        <a href="index.html" class="flex items-center space-x-4 ml-4 lg:ml-0" aria-label="SpeedClean72 - Accueil">
+          <img src="public/images/Logo 3.png" alt="SpeedClean72 Logo" class="logo h-24 md:h-28 flex-shrink-0 transition-all duration-300">
+          <div class="brand-text hidden sm:block">
+            <h1 class="text-xl md:text-2xl font-bold text-primary-900 font-heading leading-tight">SpeedClean72</h1>
+            <p class="text-sm md:text-base text-[#a88557] font-body leading-tight">Votre expert en propreté</p>
+          </div>
+        </a>
+
+        <!-- Navigation Desktop -->
+        <nav class="hidden lg:flex items-center space-x-10">
+          <a href="index.html" class="nav-link relative font-medium text-[#94A3B8] hover:text-[#475569] after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-full after:h-[2px] after:bg-accent after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">Accueil</a>
+          <a href="index.html#services" class="nav-link relative font-medium text-[#94A3B8] hover:text-[#475569] after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-full after:h-[2px] after:bg-accent after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">Services</a>
+          <a href="index.html#about" class="nav-link relative font-medium text-[#94A3B8] hover:text-[#475569] after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-full after:h-[2px] after:bg-accent after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">À propos</a>
+          <a href="contact.html" class="nav-link relative font-medium text-[#94A3B8] hover:text-[#475569] after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-full after:h-[2px] after:bg-accent after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">Contact</a>
+          <a href="devis.html" class="nav-cta bg-accent hover:bg-accent-dark text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow hover:shadow-md">Devis Gratuit</a>
+        </nav>
+
+        <!-- Bouton Burger -->
+        <button id="mobile-menu-button" class="lg:hidden p-2 mr-4 rounded text-primary-900 focus:outline-none focus:ring-2 focus:ring-accent" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu Mobile (caché par défaut) -->
+    <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-white shadow-lg py-4 transition-transform duration-300 ease-in-out transform -translate-y-full opacity-0">
+      <nav class="flex flex-col items-center space-y-3">
+        <a href="index.html" class="nav-link py-2 px-4 text-[#475569] hover:text-accent transition-colors duration-300">Accueil</a>
+        <a href="index.html#services" class="nav-link py-2 px-4 text-[#475569] hover:text-accent transition-colors duration-300">Services</a>
+        <a href="index.html#about" class="nav-link py-2 px-4 text-[#475569] hover:text-accent transition-colors duration-300">À propos</a>
+        <a href="contact.html" class="nav-link py-2 px-4 text-[#475569] hover:text-accent transition-colors duration-300">Contact</a>
+        <a href="devis.html" class="nav-cta bg-accent hover:bg-accent-dark text-white font-bold py-2 px-5 rounded transition-colors duration-300 mt-2">Devis Gratuit</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Section Contact -->
+  <section class="py-16 px-4 bg-gradient-to-br from-primary-100 to-blue-50 font-body">
+    <div class="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-xl shadow-lg relative overflow-hidden border-l-4 border-accent">
+      <div class="text-center mb-10">
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary-900 mb-4">Entrons en contact</h2>
+        <p class="text-gray-700 text-lg">Remplissez ce formulaire pour toute question ou demande d'information. Je reviens vers vous rapidement !</p>
+      </div>
+      
+      <form action="#" method="POST" class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Champ Nom -->
+          <div>
+            <label for="name" class="block text-sm font-semibold text-primary-700 mb-1">Nom Complet *</label>
+            <input type="text" id="name" name="name" placeholder="Votre nom et prénom" required
+                   class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-accent/50 focus:border-accent transition duration-200 ease-in-out outline-none font-body text-gray-700 placeholder-gray-400">
+          </div>
+          
+          <!-- Champ Email -->
+          <div>
+            <label for="email" class="block text-sm font-semibold text-primary-700 mb-1">Adresse E-mail *</label>
+            <input type="email" id="email" name="email" placeholder="exemple@domaine.com" required
+                   class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-accent/50 focus:border-accent transition duration-200 ease-in-out outline-none font-body text-gray-700 placeholder-gray-400">
+          </div>
+        </div>
+
+        <!-- Champ Objet -->
+        <div>
+          <label for="subject" class="block text-sm font-semibold text-primary-700 mb-1">Objet *</label>
+          <input type="text" id="subject" name="subject" placeholder="Raison de votre contact (ex: Demande d'information)" required
+                 class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-accent/50 focus:border-accent transition duration-200 ease-in-out outline-none font-body text-gray-700 placeholder-gray-400">
+        </div>
+
+        <!-- Champ Message -->
+        <div>
+          <label for="message" class="block text-sm font-semibold text-primary-700 mb-1">Votre Message *</label>
+          <textarea id="message" name="message" placeholder="Décrivez votre besoin ou posez votre question ici..." rows="5" required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-accent/50 focus:border-accent transition duration-200 ease-in-out outline-none font-body text-gray-700 placeholder-gray-400 resize-none"></textarea>
+        </div>
+
+        <!-- Bouton d'envoi -->
+        <div class="text-center pt-6">
+          <button type="submit" 
+                  class="inline-flex items-center justify-center px-8 py-3 bg-accent hover:bg-accent-dark text-white font-semibold uppercase tracking-wider rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-dark transition duration-300 ease-in-out animate-bounce hover:animate-none">
+            <i class="fas fa-paper-plane mr-2"></i> Envoyer le Message
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+  <!-- Fin Section Contact Revamp -->
+
+  <!-- Footer -->
+  <footer class="bg-primary-900 text-primary-100">
+    <!-- Section humoristique -->
+    <div class="py-3 text-center border-b border-primary-700/20 footer-humor">
+      <p class="text-primary-100 text-sm flex items-center justify-center gap-3 my-1">
+        <span class="hamster-container">
+          <span class="inline-block animate-spin-hamster">🐹</span>
+        </span>
+        <span class="hamster-text italic">Site propulsé par des hamsters entraînés 24h/24</span>
+        <span class="hamster-container">
+          <span class="inline-block animate-spin-hamster">🐹</span>
+        </span>
+      </p>
+    </div> <br>
+
+    <div class="py-20">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-16">
+          <!-- Coordonnées -->
+          <div class="footer-section">
+            <h4 class="footer-title text-accent font-heading text-2xl mb-6">Coordonnées</h4>
+            <div class="space-y-6">
+              <p class="flex items-center gap-4">
+                <i class="fas fa-map-marker-alt text-accent"></i>
+                72 Rue du Progrès, 72000 Le Mans
+              </p>
+              <p class="flex items-center gap-4">
+                <i class="fas fa-clock text-accent"></i>
+                Lun-Sam : 7h-20h
+              </p>
+              <p class="flex items-center gap-4">
+                <i class="fas fa-phone-alt text-accent"></i>
+                06 12 34 56 78
+              </p>
+              <p class="flex items-center gap-4">
+                <i class="fas fa-envelope text-accent"></i>
+                contact@speedclean72.fr
+              </p>
+            </div>
+          </div>
+
+          <!-- Services Express -->
+          <div class="footer-section">
+            <h4 class="footer-title text-accent font-heading text-2xl mb-6">Services Express</h4>
+            <ul class="space-y-2">
+              <li>Nettoyage urgent</li>
+              <li>Décapage de sols</li>
+              <li>Nettoyage de gouttières</li>
+              <li>Nettoyage après déménagement</li>
+              <li>Nettoyage post-travaux</li>
+              <li>Nettoyage de parkings et garages</li>
+            </ul>
+          </div>
+
+          <!-- Zone d'intervention -->
+          <div class="footer-section">
+            <h4 class="footer-title text-accent font-heading text-2xl mb-6">Zone d'intervention</h4>
+            <p class="mb-4">J'interviens rapidement dans ces zones :</p> <br>
+            <div class="space-y-2">
+              <div class="flex items-start gap-2">
+                <span class="text-accent">📍</span>
+                Le Mans et ses environs (20 km)
+              </div> <br>
+              <div class="flex items-start gap-2">
+                <span class="text-accent">📍</span>
+                Allonnes, Coulaines, Yvré-l'Évêque, Arnage
+              </div>
+            </div>
+          </div>
+
+          <!-- Réseaux Sociaux -->
+          <div class="footer-section">
+            <h4 class="footer-title text-accent font-heading text-2xl mb-6">Réseaux Sociaux</h4> <br>
+            <div class="flex justify-center space-x-4"> 
+              <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary-700 hover:bg-primary-900 transition-colors">
+                <i class="fab fa-facebook-f text-primary-100"></i>
+              </a>
+              <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary-700 hover:bg-primary-900 transition-colors">
+                <i class="fab fa-instagram text-primary-100"></i>
+              </a>
+              <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary-700 hover:bg-primary-900 transition-colors">
+                <i class="fab fa-linkedin-in text-primary-100"></i>
+              </a>
+              <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary-700 hover:bg-primary-900 transition-colors">
+                <i class="fab fa-tiktok text-primary-100"></i>
+              </a>
+            </div><br>
+            <p>Ne ratez rien ! Rejoignez <span class="text-accent">SPEEDCLEAN72</span>, votre expert en nettoyage au Mans.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer Bottom -->
+    <div class="relative border-t border-primary-700/20 mt-8"><br>
+      <div class="container mx-auto px-6 py-6 text-center text-sm text-primary-100/70">
+        <p class="mb-2">
+          <i class="far fa-copyright mr-2"></i>2025 SpeedClean72 - Tous droits réservés
+        </p><br>
+        <p class="mb-1">Création du site</p>
+        <p class="mb-2">
+          Conçu avec passion par <strong class="text-accent font-semibold">Debarieux David</strong> – Spécialiste en création de sites vitrine
+        </p>
+        <p class="text-primary-100/70 hover:text-primary-100 transition-colors">
+          <a href="mailto:contact.debarieux@gmail.com">contact.debarieux@gmail.com</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Placeholder for generated JS -->
+  <!-- Swiper JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script type="module" src="dist/main.js" defer></script>
+</body>
+</html>

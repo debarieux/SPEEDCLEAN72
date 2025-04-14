@@ -1,0 +1,26 @@
+{
+  "name": "speedclean72",
+  "version": "1.0.0",
+  "description": "Site vitrine pour SpeedClean72",
+  "main": "dist/main.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/style.css -o ./dist/style.css --minify && copy src\\bubbles.css dist\\",
+    "watch:css": "tailwindcss -i ./src/style.css -o ./dist/style.css --watch",
+    "build:ts": "tsc --project tsconfig.json",
+    "watch:ts": "tsc --watch --project tsconfig.json",
+    "dev": "concurrently \"npm:watch:css\" \"npm:watch:ts\" \"live-server . --port=8080\"",
+    "build": "npm run build:css && npm run build:ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "live-server": "^1.2.0",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "swiper": "^11.2.6"
+  }
+}
